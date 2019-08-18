@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Starry Sky</string>
+    <string name="zip_code_prompt">Enter 5 digit zip code:</string>
+    <string name="temperature_type">Celsius or Fahrenheit</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="forecast">placeholder</string>
+    <string name="submit">Submit</string>
+    <string name="tv_landing_tag">Get the most current weather Update</string>
+    <string name="start_btn">Get Started</string>
+    <string-array name="unit_spinner">
+        <item>Fahrenheit</item>
+        <item>Celsius</item>
+    </string-array>
 </resources>
