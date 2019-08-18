@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import jide.delano.starrysky.R;
 import static jide.delano.starrysky.view.UserSelectionUtil.UNIT;
