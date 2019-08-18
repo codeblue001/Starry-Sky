@@ -12,6 +12,7 @@ import io.reactivex.schedulers.Schedulers;
 import jide.delano.starrysky.model.ApiInterface;
 import jide.delano.starrysky.model.WeatherDataList;
 import jide.delano.starrysky.model.WeatherResult;
+import jide.delano.starrysky.view.MainActivity;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -52,6 +53,9 @@ public class Presenter implements PresenterContract{
                         String country = weatherData.getCity().getCountry();
                         String temperature = dataSet.get(0).getWeatherMain().getTemp().toString() + "°";
                         String status = dataSet.get(0).getWeather().get(0).getMain();
+
+                        ((MainActivity) context).editCurrentWeather(city + ", " + country, temperature, status);
+
                     }
 
                     @Override
