@@ -1,6 +1,7 @@
 package jide.delano.starrysky.presenter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import jide.delano.starrysky.model.ApiInterface;
 import jide.delano.starrysky.model.WeatherDataList;
 import jide.delano.starrysky.model.WeatherResult;
 import jide.delano.starrysky.view.MainActivity;
+import jide.delano.starrysky.view.UserSettingsActivity;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -27,6 +29,7 @@ public class Presenter implements PresenterContract {
     private Context context;
     private Retrofit retrofit;
     private ApiInterface apiInterface;
+    private static final String TAG = UserSettingsActivity.class.getName();
 
     public Presenter(Context context) {
         this.context = context;
@@ -98,7 +101,7 @@ public class Presenter implements PresenterContract {
         List<LinearLayout> weatherRowList = new ArrayList<LinearLayout>();
         String time, iconLink, temperature;
 
-        String iconLinkMain = "http://openweathermap.org/img/w/";
+        String iconLinkMain = "http://openweathermap.org/img/wn/";
         WeatherDataList today;
         int index;
         LinearLayout currentRow = null;
@@ -111,7 +114,8 @@ public class Presenter implements PresenterContract {
             }
             today = day.get(i);
             time = today.getDtTxt().split("\\s+")[1];
-            iconLink = iconLinkMain + today.getWeather().get(0).getIcon() + ".png";
+            iconLink = iconLinkMain + today.getWeather().get(0).getIcon() + "@2x.png";
+            Log.d(TAG, "setUpHourlyWeather: " + iconLink);
             temperature = today.getWeatherMain().getTemp().toString() + "°";
             fillWeatherEntry(currentRow, index, time.substring(0, time.length() - 3), iconLink, temperature);
         }
