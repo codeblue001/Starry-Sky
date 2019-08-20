@@ -3,6 +3,8 @@ package jide.delano.starrysky.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +42,13 @@ public class UserSettingsActivity extends AppCompatActivity {
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rain);
         mVideoView.setVideoURI(uri);
         mVideoView.start();
+
+        //audio
+        MediaPlayer mMediaPlayer = new MediaPlayer();
+        mMediaPlayer = MediaPlayer.create(this, R.raw.thunder);
+        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mMediaPlayer.setLooping(true);
+        mMediaPlayer.start();
 
         //zip and unit check conditional
         btnStart.setOnClickListener(new View.OnClickListener() {
