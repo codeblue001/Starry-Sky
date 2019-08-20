@@ -21,7 +21,7 @@ import jide.delano.starrysky.presenter.PresenterContract;
 public class MainActivity extends AppCompatActivity implements WeatherDetailActivityInterface{
 
     private PresenterContract presenter;
-    private TextView tvLocale;
+    private TextView tvCity;
     private TextView tvTemperature;
     private TextView tvStatus;
     private ImageView ivSettiing;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements WeatherDetailActi
 
 
     private void setUpViews() {
-        tvLocale = findViewById(R.id.tv_locale);
+        tvCity = findViewById(R.id.tv_locale);
         tvTemperature = findViewById(R.id.tv_current_temp);
         tvStatus = findViewById(R.id.tv_weather_cond);
         ivSettiing = findViewById(R.id.iv_settings);
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements WeatherDetailActi
         int warmFahrenheit = 70;
         int warmCelcius = 21;
         double temperatureDouble = Double.parseDouble(temperature.substring(0, temperature.length() - 1));
-        tvLocale.setText(city);
+        tvCity.setText(city);
         tvTemperature.setText(temperature);
         tvStatus.setText(condition);
 
